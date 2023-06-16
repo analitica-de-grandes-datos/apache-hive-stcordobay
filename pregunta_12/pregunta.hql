@@ -41,4 +41,4 @@ INSERT OVERWRITE DIRECTORY './output'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 
 
-SELECT letter, valores, COUNT(1) FROM tabla GROUP BY letter, claves;
+SELECT letter, claves, COUNT(1) FROM tabla GROUP BY letter, claves;
