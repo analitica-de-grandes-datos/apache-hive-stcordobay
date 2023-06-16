@@ -52,4 +52,4 @@ CREATE TABLE column5 AS SELECT (YEAR(c4)) dates, letter FROM tbl0 LATERAL VIEW e
 
 INSERT OVERWRITE DIRECTORY 'output'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-SELECT date, letter, COUNT(1) val FROM column5 GROUP BY dates, letter ORDER BY dates, letter ASC;
+SELECT dates, letter, COUNT(1) val FROM column5 GROUP BY dates, letter ORDER BY dates, letter ASC;
