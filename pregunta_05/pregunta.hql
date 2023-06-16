@@ -48,9 +48,8 @@ LOAD DATA LOCAL INPATH 'data1.csv' INTO TABLE tbl1;
 
 DROP TABLE IF EXISTS column5;
 
-CREATE TABLE column5 AS SELECT (YEAR(c4)) year, letter FROM tbl0 LATERAL VIEW explode(c5) letter_list as letter;
+CREATE TABLE column5 AS SELECT (YEAR(c4)) dates, letter FROM tbl0 LATERAL VIEW explode(c5) letter_list as letter;
 
 INSERT OVERWRITE DIRECTORY 'output'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-SELECT year, letter, COUNT(1) val FROM column5 GROUP BY letter ORDER BY year, letter ASC;
-
+SELECT date, letter, COUNT(1) val FROM column5 GROUP BY dates, letter ORDER BY dates, letter ASC;
