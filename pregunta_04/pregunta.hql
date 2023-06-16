@@ -44,3 +44,12 @@ LOAD DATA LOCAL INPATH 'data1.csv' INTO TABLE tbl1;
 /*
     >>> Escriba su respuesta a partir de este punto <<<
 */
+
+
+DROP TABLE IF EXISTS column5;
+
+CREATE TABLE column5 AS SELECT explode(c5) AS letter FROM tbl0;
+
+INSERT OVERWRITE DIRECTORY 'output'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+SELECT * FROM column5 GROUP BY letter ORDER BY letter ASC;
