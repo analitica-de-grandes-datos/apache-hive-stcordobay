@@ -15,9 +15,7 @@ Escriba el resultado a la carpeta `output` de directorio de trabajo.
 */
 DROP TABLE IF EXISTS data;
 
-CREATE TABLE data (letter       STRING,
-                           date        STRING,
-                           number      INT)
+CREATE TABLE data (letter       STRING, dates        STRING, numbers      INT)
                            
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
