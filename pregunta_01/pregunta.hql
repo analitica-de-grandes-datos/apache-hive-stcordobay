@@ -24,6 +24,6 @@ LOAD DATA LOCAL INPATH 'data.tsv' OVERWRITE INTO TABLE data;
 INSERT OVERWRITE DIRECTORY '/output'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 SELECT
-    letter, COUNT(letter)
+    letter, COUNT(letter) AS num
 FROM
     data GROUP BY letter;
