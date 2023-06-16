@@ -48,10 +48,11 @@ LOAD DATA LOCAL INPATH 'data1.csv' INTO TABLE tbl1;
 
 
 DROP TABLE IF EXISTS tabla;
-CREATE TABLE tabla AS SELECT c2, concat_ws(':',collect_list(cast(c1 as string))) as datos
-FROM tbl0 GROUP BY c2;
+CREATE TABLE tabla AS SELECT c2, 
+concat_ws(':',collect_list(cast(c1 as string))) as datos FROM tbl0 GROUP BY c2;
 
 
-INSERT OVERWRITE DIRECTORY './output'
+INSERT OVERWRITE DIRECTORY 'output'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 SELECT * FROM tabla;
+

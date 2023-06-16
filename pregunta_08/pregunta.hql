@@ -55,4 +55,4 @@ FROM tbl0 LATERAL VIEW explode(map_values(c6)) tbl0 as numbers;
 
 INSERT OVERWRITE DIRECTORY 'output'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-SELECT letter, sum(numbers) FROM tabla GROUP BY letters;
+SELECT letter, sum(numbers) FROM tabla GROUP BY letter;
